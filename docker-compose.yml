@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    build:
+      dockerfile: ./docker/python/Dockerfile
+      context: ./
+    container_name: "Flask2-web"
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
