@@ -19,15 +19,9 @@ def delete_plant(id):
     Plant.delete(id)
     return redirect("/")
 
-@app.route("/plant-view/<int:id>")
-def plant_view(id):
-    plant = Plant.get_by_id(id)
-    employee_html = [{}]
+@app.route("/plants")
+def plants():
+    plants = Plant.get_data()
     employee = Employee.get_data()
-    return render_template("plant_view.html", plant=plant, employee=employee)
+    return render_template("plants.html", employee=employee, plants=plants)
 
-# @app.route("/plant-view")
-# def plant_info():
-#     employee_html = [{}]
-#     employee = Employee.get_data()
-#     return render_template("plant_view.html", employee=employee)
